@@ -58,6 +58,10 @@ def main(InputFileFull, OutputFileStart):
         value = MakeString(table.row_values(i)[:6])
         StringList.append(value)
 
+    # delete the last blank line
+    LineLength = len(StringList[nrows-2])
+    StringList[nrows-2] = StringList[nrows-2][0:LineLength-1]
+
     file_object.writelines(StringList)
     file_object.close( )
 
