@@ -3,6 +3,18 @@ import xlrd
 import time
 import sys
 
+def Appendblanks(fValue,nTotalLen):
+    # print fValue
+    strValue = str(fValue)
+    lenIn = len(strValue)
+    nBlanks = nTotalLen - lenIn
+    StrOut = ""
+
+    for i in range(0, nBlanks):
+        StrOut = StrOut + " "
+    return strValue + StrOut
+
+
 def Insertblanks(fValue,nTotalLen):
     #print fValue
     strValue = str(fValue)
@@ -42,7 +54,7 @@ def MakeString(DataInSingleLine):
             Insertblanks(TotalCost,20)+ "|" + \
             Insertblanks(Refund, 20) + "|" + \
             str(int(Date)) + "|" + \
-            BuyerID + \
+            Appendblanks(BuyerID,40) + \
             "\r\n"
     return Final
 
