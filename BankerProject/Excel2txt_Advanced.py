@@ -44,7 +44,8 @@ def MakeString(DataInSingleLine):
     #convert to XX.xx
     Price = '%0.2f' % Price
     TotalCost = '%0.2f' % TotalCost
-
+    Refund = '%0.2f' % Refund
+    
     Final = Account + "|" + \
             str(int(Code))+"|" +\
             Insertblanks(int(Limit),4)+ "|" +\
