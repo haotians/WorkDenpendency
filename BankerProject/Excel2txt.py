@@ -56,13 +56,8 @@ def main(InputFileFull, OutputFileStart):
         if i == 0:
             continue
         value = MakeString(table.row_values(i)[:6])
-        StringList.append(value)
+        file_object.write(value)
 
-    # delete the last blank line
-    LineLength = len(StringList[nrows-2])
-    StringList[nrows-2] = StringList[nrows-2][0:LineLength-1]
-
-    file_object.writelines(StringList)
     file_object.close( )
 
 t1 = time.time()
