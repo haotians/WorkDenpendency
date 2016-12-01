@@ -3,14 +3,15 @@ import xlrd
 import time
 import sys
 
+
 def HandleHyphen(string):
-	lens = len(string)
-	if string.find("-") != -1:
-		string = string.replace("-", " ", 10) 
-	return string
+    lens = len(string)
+    if string.find("-") != -1:
+        string = string.replace("-", " ", 10)
+    return string
 
 def Appendblanks(fValue,nTotalLen):
-    # print fValue
+    #print fValue
     strValue = str(fValue)
     lenIn = len(strValue)
     nBlanks = nTotalLen - lenIn
@@ -97,7 +98,7 @@ def main(InputFileFull, OutputFileStart):
         if i == 0:
             continue
         value = MakeString(table.row_values(i)[:10])
-    	file_object.write(value)
+        file_object.write(value)
 
     file_object.close( )
 
