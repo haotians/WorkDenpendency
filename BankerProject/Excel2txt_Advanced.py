@@ -3,6 +3,11 @@ import xlrd
 import time
 import sys
 
+def HandleHyphen(string):
+	lens = len(string)
+	if string.find("-") != -1:
+		string = string.replace("-", " ") 
+
 def Appendblanks(fValue,nTotalLen):
     # print fValue
     strValue = str(fValue)
@@ -39,13 +44,16 @@ def MakeString(DataInSingleLine):
     TotalCost = DataInSingleLine[6]
     Refund = DataInSingleLine[7]
     Date = DataInSingleLine[8]
-    BuyerID = DataInSingleLine[9]
+    BuyerID = str(DataInSingleLine[9])
+
+    HandleHyphen(BuyerID)
 
     #convert to XX.xx
     Price = '%0.2f' % Price
     TotalCost = '%0.2f' % TotalCost
     Refund = '%0.2f' % Refund
     
+    #make final string
     Final = Account + "|" + \
             str(int(Code))+"|" +\
             Insertblanks(int(Limit),4)+ "|" +\
@@ -55,7 +63,7 @@ def MakeString(DataInSingleLine):
             Insertblanks(TotalCost,20)+ "|" + \
             Insertblanks(Refund, 20) + "|" + \
             str(int(Date)) + "|" + \
-            Appendblanks(BuyerID,40) + \
+            BuyerID.ljust(40) + \
             "\r\n"
     return Final
 
