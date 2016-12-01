@@ -6,7 +6,8 @@ import sys
 def HandleHyphen(string):
 	lens = len(string)
 	if string.find("-") != -1:
-		string = string.replace("-", " ") 
+		string = string.replace("-", " ", 10) 
+	return string
 
 def Appendblanks(fValue,nTotalLen):
     # print fValue
@@ -46,7 +47,7 @@ def MakeString(DataInSingleLine):
     Date = DataInSingleLine[8]
     BuyerID = str(DataInSingleLine[9])
 
-    HandleHyphen(BuyerID)
+    BuyerID = HandleHyphen(BuyerID)
 
     #convert to XX.xx
     Price = '%0.2f' % Price
