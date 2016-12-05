@@ -26,7 +26,14 @@ def MakeString(DataInSingleLine):
     Price = '%0.2f' % Price
     TotalCost = '%0.2f' % TotalCost
 
-    Final = Account + "|" +str(int(Code))+"|" + Insertblanks(Price,17) + "|"+  Insertblanks(int(Amount),12)+ "|" + Insertblanks(TotalCost,20)+ "|" + str(int(Date)) + "\r\n"
+    Final = Account + "|" +\
+            str(int(Code))+ "|" + \
+            Insertblanks(Price,17) + "|" + \
+            Insertblanks(int(Amount),12) + "|" +\
+            Insertblanks(TotalCost,20) + "|" + \
+            str(int(Date)) + \
+            "\r\n"
+
     return Final
 
 def main(InputFileFull, OutputFileStart):
@@ -49,7 +56,6 @@ def main(InputFileFull, OutputFileStart):
     table = data.sheets()[0]
     #read
     file_object = open(strOutput, 'w')
-    StringList = []
 
     nrows = table.nrows
     for i in range(nrows):
