@@ -90,7 +90,7 @@ def main(InputFileFull, OutputFileStart):
     #read data in first sheet
     table = data.sheets()[0]
     #read
-    file_object = open(strOutput, 'w')
+    file_object = open(strOutput, 'wb+')
     StringList = []
 
     nrows = table.nrows
